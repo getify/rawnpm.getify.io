@@ -1,0 +1,5 @@
+output.txt
+node_modules
+npm_cache/*
+!npm_cache/README.md
+secret.js
