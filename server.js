@@ -240,14 +240,14 @@ var PROD = (process.env.NODE_ENV === "production"),
 require("asynquence-contrib");
 
 
+// contain this server's special npm config to this file
+conf.userconfig = path.join(__dirname,".npmrc");
+
+
 // load up the npm conf/module
 npm.load(conf,function(err,config){
 	if (err) return ERROR("core",err);
 	NOTICE("core","npm ready");
-
-	// set some npm configs
-	config.set("loglevel","silent");
-	config.set("cache",path.join(__dirname,"npm_cache"));
 
 	// spin up the HTTP server
 	httpserv.listen(INTERNAL_SERVER_PORT, INTERNAL_SERVER_ADDR);
